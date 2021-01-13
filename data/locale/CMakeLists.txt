@@ -2,11 +2,11 @@ set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 
 MESSAGE(STATUS "* LOCALE TRANSLATIONS:")
 
-FIND_PACKAGE(Qt5LinguistTools)
+FIND_PACKAGE(Qt6LinguistTools REQUIRED)
 
-if (Qt5LinguistTools_FOUND)
+if (Qt6LinguistTools_FOUND)
 
-    MESSAGE(STATUS "Qt5LinguistTools found, verion: ${Qt5LinguistTools_VERSION}") 
+    MESSAGE(STATUS "Qt6LinguistTools found, verion: ${Qt6LinguistTools_VERSION}") 
     MESSAGE(STATUS "Add a macro in the build process, to process translation files")
 
     #Check of sExeSourceDir
@@ -40,9 +40,9 @@ if (Qt5LinguistTools_FOUND)
         set_source_files_properties(${sTranslationTsFiles} PROPERTIES OUTPUT_LOCATION ${sOutputDir}/${sRelativeLocation})
 
     # macro creation :
-    QT5_CREATE_TRANSLATION(sTranslationQmFiles ${sExeSourceDir} ${sTranslationTsFiles} OPTIONS -source-language en)
+    QT6_CREATE_TRANSLATION(sTranslationQmFiles ${sExeSourceDir} ${sTranslationTsFiles} OPTIONS -source-language en)
     # In case of issues, the next command can help:
-    #QT5_CREATE_TRANSLATION(sTranslationQmFiles ${sExeSourceDir} ${sTranslationTsFiles} OPTIONS -I ${sExeSourceDir})
+    #QT6_CREATE_TRANSLATION(sTranslationQmFiles ${sExeSourceDir} ${sTranslationTsFiles} OPTIONS -I ${sExeSourceDir})
 
     ADD_CUSTOM_TARGET ( t_translations_update ALL
                         DEPENDS ${sTranslationQmFiles}
@@ -58,7 +58,7 @@ if (Qt5LinguistTools_FOUND)
 
 else ()
 
-       MESSAGE(WARNING "Qt5LinguistTools not found, the translation files will not be processed")
+       MESSAGE(WARNING "Qt6LinguistTools not found, the translation files will not be processed")
 
 endif()
 

@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.4.3)
+﻿cmake_minimum_required(VERSION 3.17)
 
 # Project's name
 project (localeLanguageManagerQtDemo)
@@ -129,10 +129,10 @@ MESSAGE(STATUS " ")#Display an empty line
     
     # Find the QtWidgets library
     #find_package(Qt5 REQUIRED)
-    find_package(Qt5Core REQUIRED)
-    MESSAGE(STATUS "Qt5Core found, verion: ${Qt5Core_VERSION}")
-    find_package(Qt5Widgets REQUIRED)
-    MESSAGE(STATUS "Qt5Widgets found, verion: ${Qt5Widgets_VERSION}")
+    find_package(Qt6Core REQUIRED)
+    MESSAGE(STATUS "Qt6Core found, verion: ${Qt6Core_VERSION}")
+    find_package(Qt6Widgets REQUIRED)
+    MESSAGE(STATUS "Qt6Widgets found, verion: ${Qt6Widgets_VERSION}")
 
 ##
 # Sub-directories include

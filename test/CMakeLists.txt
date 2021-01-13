@@ -106,12 +106,13 @@ if (Boost_UNIT_TEST_FRAMEWORK_FOUND)
     ##
     # link to Qt
     #
-        MESSAGE(STATUS "Link to Qt5 lib")
+        MESSAGE(STATUS "Link to Qt6 lib")
 
-        target_link_libraries( ${sUnitTestProjectName} ${Qt5Core_QTMAIN_LIBRARIES} )
-        qt5_use_modules(${sUnitTestProjectName} Core)
-        qt5_use_modules(${sUnitTestProjectName} Widgets)
-
+        target_link_libraries( ${sUnitTestProjectName} ${Qt5Core_QTMAIN_LIBRARIES}
+		  Qt6::Core
+		  Qt6::Widgets
+		  )
+		
 
     ##
     # COVERAGE

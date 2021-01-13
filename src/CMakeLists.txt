@@ -54,9 +54,11 @@ MESSAGE(STATUS "* EXECUTABLE")
 ##
 # link to Qt
 #
-    MESSAGE(STATUS "Link to Qt5 lib")
-    target_link_libraries( ${sExeName} ${Qt5Core_QTMAIN_LIBRARIES} )
-    qt5_use_modules(${sExeName} Widgets)
+    MESSAGE(STATUS "Link to Qt6 lib")
+    target_link_libraries( ${sExeName} ${Qt5Core_QTMAIN_LIBRARIES}
+	  PRIVATE
+	  Qt6::Widgets
+	  )
 	
 
     MESSAGE(STATUS " ")
